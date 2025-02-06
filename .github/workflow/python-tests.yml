@@ -1,0 +1,28 @@
+name: FizzBuzz Tests  # Nom du workflow
+
+on:  # Déclenche le workflow sur ces événements
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  test:
+    runs-on: ubuntu-latest  # Utilise une machine virtuelle Ubuntu
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4  # Récupère le code du repo
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'  # Spécifie la version de Python
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt || echo "No dependencies found"
+
+      - name: Run unit tests
+        run: python -m unittest discover
