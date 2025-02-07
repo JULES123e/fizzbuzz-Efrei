@@ -16,6 +16,7 @@ class TestFizzBuzz(unittest.TestCase):
         self.assertEqual(fizzbuzz(15), "FizzBuzz")
         self.assertEqual(fizzbuzz(30), "FizzBuzz")
         self.assertEqual(fizzbuzz(45), "FizzBuzz")
+        
 
     def test_number(self):
         self.assertEqual(fizzbuzz(1), "1")
@@ -23,4 +24,4 @@ class TestFizzBuzz(unittest.TestCase):
         self.assertEqual(fizzbuzz(4), "4")
 
 if __name__ == "__main__":
-    unittest.main()
+    unittest.TextTestRunner(verbosity=2).run(unittest.defaultTestLoader.loadTestsFromTestCase(TestFizzBuzz))
